@@ -1,0 +1,76 @@
+.Square {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.add-blogs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-blogs h4 {
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.add-blogs button {
+    width: auto;
+    max-width: 200px;
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border: 1px solid blue;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-blogs button:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+.add-blogs button:active {
+    background-color: #007bff;
+    color: white;
+}
+
+.blog-content {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #5e5b5b;
+}
+
+.blog-content:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    .Square {
+        max-width: 100%;
+    }
+
+    .add-blogs button {
+        max-width: 100%;
+    }
+
+    .blog-content {
+        font-size: 14px;
+    }
+}
