@@ -1,18 +1,20 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import "./blogDetails.css";
+import { useState } from "react";
 
 const BlogDetails = ({ filteredBlogs }) => {
   const firstFiveBlogs = filteredBlogs.slice(0, 5);
+  const [selectedBlog, setSelectedBlog] = useState(null);
 
   const fetchBlogPost = async (blogId) => {
     try {
-      const response = await fetch(`http://localhost:4000/${blogId}`);
+      const response = await fetch(`https://backend-33vo.onrender.com/${blogId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch blog post");
       }
       const blogPostData = await response.json();
-      return blogPostData;
+      setSelectedBlog(blogPostData);
     } catch (error) {
       console.error("Error fetching blog post:", error);
       return null;
@@ -35,17 +37,22 @@ const BlogDetails = ({ filteredBlogs }) => {
               <p
                 className="blog-content"
                 onClick={() => fetchBlogPost(blog.id)}
-                key={blog.id}
               >
                 {blog.content.split(" ").slice(0, 5).join(" ")}
                 ...
-              </p>{" "}
+              </p>
             </div>
           ))
         ) : (
           <p>not found</p>
         )}
       </div>
+      {selectedBlog && (
+        <div className="selected-blog-details">
+          <h2>{selectedBlog.title}</h2>
+          <p>{selectedBlog.content}</p>
+        </div>
+      )}
     </>
   );
 };

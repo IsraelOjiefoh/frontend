@@ -12,7 +12,7 @@ const GetBlogs = () => {
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/`);
+        const response = await fetch("https://backend-33vo.onrender.com");
 
         if (!response.ok) {
           throw new Error("Failed to fetch blog details");
